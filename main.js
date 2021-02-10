@@ -2,25 +2,22 @@
 const { app, BrowserWindow } = require('electron')
 // const path = require('path')
 
-process.env.GOOGLE_API_KEY = 'AIzaSyAQv0dh7EKs5PC-TaaB-45gBsH0v_qPE0g'
-console.log("Result: ", process.env.GOOGLE_API_KEY);
+process.env.GOOGLE_API_KEY = 'YOUR_GOOGLE_GEOLOCATION_API_KEY'
 
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    // webPreferences: {
-    //   preload: path.join(__dirname, 'preload.js')
-    // }
+    width: 1080,
+    height: 750,
+    autoHideMenuBar: true,
+    webPreferences: {
+      // preload: path.join(__dirname, 'preload.js')
+      contextIsolation: true
+    }
   })
 
-  console.log(mainWindow.getPosition())
-
-  // and load the index.html of the app.
-  
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
   mainWindow.loadURL("https://handcup.herokuapp.com/home");
 }
 
